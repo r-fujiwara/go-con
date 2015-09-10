@@ -10,7 +10,7 @@ class App < Sinatra::Base
 
   get '/' do
     puts "fuga"
-    'Hello world'
+    'no-bye world'
   end
 
   run!
