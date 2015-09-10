@@ -1,5 +1,6 @@
 require "sinatra/base"
 require "sinatra/reloader"
+require "pry"
 
 class App < Sinatra::Base
   configure :development do
@@ -8,7 +9,11 @@ class App < Sinatra::Base
 
 
   get '/' do
+    puts "fuga"
     'Hello world'
   end
+
+  run!
 end
+
 
