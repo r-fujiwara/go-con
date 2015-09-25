@@ -30,7 +30,7 @@ GoコンVol2
 進捗
 ===
 
-### ビルド/パッケージング
+### ビルド/パッケージング/名前空間とか
 
 - [hiromi-go](https://github.com/r-fujiwara/hiromi-go)を読んで何となく雰囲気を感じて欲しい
 - ただ、[ここ](https://github.com/haruyama/golang-goji-sample/blob/master/server.go#L10-L11)が気になった。public repoじゃないと死んでしまうのでは？
@@ -47,8 +47,15 @@ GO_PATHについて
 
 ### Makefileでリロード
 
-- 放置。
-- 頑張れば出来そう。
+- freshとか使うと色々と分けわかんなそうだから、MakefileとかでReloadしてgdbでやる作戦
+- [sample](https://github.com/r-fujiwara/goji-sample-for-makefile)
+
+```
+$ go get github.com/codeskyblue/fswatch
+$ git clone git@github.com:r-fujiwara/goji-sample-for-makefile.git
+$ cd goji-sample-for-makefile
+$ make serve
+```
 
 gdb
 ===
@@ -66,12 +73,10 @@ $ gdb hiromi
 - 何か他に覚えておけ的なオプションあります？
 
 ```
-$ gdb main
+$ gdb hiromi
 
 (gdb) b hiromiorigin.go:9
 (gdb) run
-(gdb) p a
-
 (gdb) p a
 $1 = {
   str = 0x4db6b0 "initial",

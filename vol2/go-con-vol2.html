@@ -2606,7 +2606,7 @@ article.smaller q::after {
 </article>
 
 <article>
-<h3>ビルド/パッケージング</h3>
+<h3>ビルド/パッケージング/名前空間とか</h3>
 
 <ul>
 <li><a href="https://github.com/r-fujiwara/hiromi-go">hiromi-go</a>を読んで何となく雰囲気を感じて欲しい</li>
@@ -2639,9 +2639,15 @@ article.smaller q::after {
 <h3>Makefileでリロード</h3>
 
 <ul>
-<li>放置。</li>
-<li>頑張れば出来そう。</li>
+<li>freshとか使うと色々と分けわかんなそうだから、MakefileとかでReloadしてgdbでやる作戦</li>
+<li><a href="https://github.com/r-fujiwara/goji-sample-for-makefile">sample</a></li>
 </ul>
+
+<pre><code>$ go get github.com/codeskyblue/fswatch
+$ git clone git@github.com:r-fujiwara/goji-sample-for-makefile.git
+$ cd goji-sample-for-makefile
+$ make serve
+</code></pre>
 
 
 </article>
@@ -2671,12 +2677,10 @@ $ gdb hiromi
 <li>何か他に覚えておけ的なオプションあります？</li>
 </ul>
 
-<pre><code>$ gdb main
+<pre><code>$ gdb hiromi
 
 (gdb) b hiromiorigin.go:9
 (gdb) run
-(gdb) p a
-
 (gdb) p a
 $1 = {
   str = 0x4db6b0 &quot;initial&quot;,
